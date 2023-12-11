@@ -4,3 +4,6 @@
 # zsh
 .zsh_history
 .zcompdump*
+
+# oh-my-zsh
+.zsh/custom/plugins
