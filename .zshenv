@@ -15,7 +15,7 @@ export PATH="$PATH:/Users/sashkevich/.mint/bin"
 export PATH="/Users/sashkevich/.local/bin:$PATH"
 
 # Starship
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
 
 # Localization
 export LC_ALL='en_US.UTF-8'
