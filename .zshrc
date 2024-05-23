@@ -9,13 +9,14 @@ plugins=(
 	git
 	zsh-autosuggestions
 	you-should-use
-  z
-  fzf-zsh-plugin
-  zsh-syntax-highlighting
+	z
+	fzf-zsh-plugin
+	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # Load Starship
 eval "$(starship init zsh)"
-
+eval "$(rbenv init - zsh)"
+fpath+=${ZDOTDIR:-~}/.zsh_functions

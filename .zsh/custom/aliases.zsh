@@ -1,5 +1,11 @@
-alias l="exa -l"
+alias l="eza -la --icons"
+alias ls="eza"
 alias task=~/.local/bin/task
 alias python="/opt/homebrew/bin/python3"
 alias lgt=lazygit
 alias nv=nvim
+alias dm=dark-mode
+alias mv="mv -i"
+alias rm="rm -i"
+alias cp="cp -i"
+alias cls="clear"

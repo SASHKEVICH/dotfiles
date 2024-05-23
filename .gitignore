@@ -3,6 +3,8 @@
 
 # zsh
 .zsh_history
+.zsh_functions
+.zsh_sessions
 .zcompdump*
 
 # oh-my-zsh

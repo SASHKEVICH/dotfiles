@@ -1,6 +1,3 @@
-# zsh
-ENABLE_CORRECTION="true"
-
 # cargo
 . "$HOME/.cargo/env"
 
@@ -13,6 +10,7 @@ export PATH="$PATH:/Users/sashkevich/Library/Python/3.9/bin"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Users/sashkevich/.mint/bin"
 export PATH="/Users/sashkevich/.local/bin:$PATH"
+export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 
 # Starship
 export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
@@ -27,3 +25,5 @@ export LIBRARY_PATH=/opt/homebrew/lib
 export NVM_DIR=~/.nvm
 
 export EDITOR=nvim
+
+export JAVA_HOME="/usr/libexec/java_home"

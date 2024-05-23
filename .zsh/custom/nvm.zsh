@@ -1,2 +1,2 @@
 
-# source $(brew --prefix nvm)/nvm.sh
+source $(brew --prefix nvm)/nvm.sh
