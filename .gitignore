@@ -9,3 +9,5 @@
 
 # oh-my-zsh
 .zsh/custom/plugins
+
+nvim/.config/nvim/lazy-lock.json
