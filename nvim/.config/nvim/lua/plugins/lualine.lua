@@ -35,7 +35,7 @@ return {
 	opts = {
 		globalstatus = true,
 		options = {
-			theme = "gruvbox",
+			theme = "catppuccin",
 			component_separators = "",
 			section_separators = { left = "", right = "" },
 		},
@@ -79,4 +79,7 @@ return {
 		},
 		tabline = {},
 	},
+	config = function(_, opts)
+		require("lualine").setup(opts)
+	end,
 }

@@ -26,12 +26,12 @@ return {
 			local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
 			local opts = require("lazy.core.plugin").values(plugin, "opts", false)
 			local mappings = {
-				{ opts.mappings.add,            desc = "Add surrounding",                     mode = { "n", "v" } },
-				{ opts.mappings.delete,         desc = "Delete surrounding" },
-				{ opts.mappings.find,           desc = "Find right surrounding" },
-				{ opts.mappings.find_left,      desc = "Find left surrounding" },
-				{ opts.mappings.highlight,      desc = "Highlight surrounding" },
-				{ opts.mappings.replace,        desc = "Replace surrounding" },
+				{ opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
+				{ opts.mappings.delete, desc = "Delete surrounding" },
+				{ opts.mappings.find, desc = "Find right surrounding" },
+				{ opts.mappings.find_left, desc = "Find left surrounding" },
+				{ opts.mappings.highlight, desc = "Highlight surrounding" },
+				{ opts.mappings.replace, desc = "Replace surrounding" },
 				{ opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
 			}
 			mappings = vim.tbl_filter(function(m)
@@ -76,23 +76,5 @@ return {
 			-- stylua: ignore
 			{ "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
 		},
-	},
-	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		opts = {
-			enable_autocmd = false,
-		},
-		config = function()
-			vim.g.skip_ts_context_commentstring_module = true
-			vim.opt.updatetime = 100
-
-			vim.api.nvim_create_autocmd("FileType", {
-				group = vim.api.nvim_create_augroup("FixSwiftCommentString", { clear = true }),
-				callback = function(ev)
-					vim.bo[ev.buf].commentstring = "// %s"
-				end,
-				pattern = { "swift" },
-			})
-		end,
 	},
 }
