@@ -1,6 +1,6 @@
-[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
-[[ -f ~/.zsh/keybinds.zsh ]] && source ~/.zsh/keybinds.zsh
-[[ -f ~/.zsh/nvm.zsh ]] && source ~/.zsh/nvm.zsh
+[[ -f ~/.zsh/custom/aliases.zsh ]] && source ~/.zsh/custom/aliases.zsh
+[[ -f ~/.zsh/custom/keybinds.zsh ]] && source ~/.zsh/custom/keybinds.zsh
+[[ -f ~/.zsh/custom/nvm.zsh ]] && source ~/.zsh/custom/nvm.zsh
 
 zstyle ':omz:update' mode auto
 

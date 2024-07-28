@@ -3,7 +3,6 @@
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-export ZSH_CUSTOM="$HOME/dotfiles/.zsh/custom"
 
 # PATH
 export PATH="$PATH:/Users/sashkevich/Library/Python/3.9/bin"
