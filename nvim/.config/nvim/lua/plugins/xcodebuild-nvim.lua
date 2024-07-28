@@ -1,4 +1,5 @@
 return {
+	enabled = true,
 	"wojciech-kulik/xcodebuild.nvim",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
