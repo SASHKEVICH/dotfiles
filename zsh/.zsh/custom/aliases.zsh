@@ -1,4 +1,4 @@
-alias l="eza -la --icons"
+alias lf="eza -la --icons"
 alias ls="eza"
 alias task=~/.local/bin/task
 alias python="/opt/homebrew/bin/python3"
