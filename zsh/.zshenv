@@ -21,7 +21,7 @@ export LC_ALL='en_US.UTF-8'
 export LIBRARY_PATH=/opt/homebrew/lib
 
 # nvm
-export NVM_DIR=~/.nvm
+export NVM_DIR="$HOME/.nvm"
 
 export EDITOR=nvim
 

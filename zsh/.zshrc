@@ -10,13 +10,18 @@ plugins=(
 	zsh-autosuggestions
 	you-should-use
 	z
-	fzf-zsh-plugin
 	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 
+# Load fzf
+source <(fzf --zsh)
+
 # Load Starship
 eval "$(starship init zsh)"
 eval "$(rbenv init - zsh)"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
