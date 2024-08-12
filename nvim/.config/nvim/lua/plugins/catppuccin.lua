@@ -6,7 +6,7 @@ return {
 	opts = {
 		background = {
 			light = "latte",
-			dark = "macchiato",
+			dark = "frappe",
 		},
 		integrations = {
 			mason = false,
