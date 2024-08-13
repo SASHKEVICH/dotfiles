@@ -1,6 +1,8 @@
 import = [
-	"~/.config/alacritty/catppuccin-macchiato.toml"
+	"~/dotfiles/alacritty/.config/alacritty/catppuccin-frappe.toml"
 ]
+
+live_config_reload = true
 
 [env]
 TERM = "xterm-256color"
