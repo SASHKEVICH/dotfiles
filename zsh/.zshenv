@@ -1,5 +1,3 @@
-export HOME="/Users/sashkevich"
-
 # cargo
 . "$HOME/.cargo/env"
 
