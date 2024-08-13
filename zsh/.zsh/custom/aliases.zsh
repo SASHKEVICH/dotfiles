@@ -1,5 +1,3 @@
-alias lf="eza -la --icons"
-alias ls="eza"
 alias task=~/.local/bin/task
 alias python="/opt/homebrew/bin/python3"
 alias lg=lazygit

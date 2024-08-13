@@ -1,3 +1,5 @@
+export HOME="/Users/sashkevich"
+
 # cargo
 . "$HOME/.cargo/env"
 
@@ -10,6 +12,7 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Users/sashkevich/.mint/bin"
 export PATH="/Users/sashkevich/.local/bin:$PATH"
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+export PATH="$PATH:/Users/sashkevich/go/bin"
 
 # Starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -25,4 +28,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export EDITOR=nvim
 
+# Java
 export JAVA_HOME="/usr/libexec/java_home"
