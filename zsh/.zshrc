@@ -11,6 +11,16 @@ plugins=(
 	you-should-use
 	z
 	zsh-syntax-highlighting
+	battery
+	brew
+	emoji
+	emoji-clock
+	eza
+	fzf
+	macos
+	rbenv
+	swiftpm
+	tmux
 )
 
 source $ZSH/oh-my-zsh.sh
