@@ -1,45 +1,49 @@
 return {
 	"rcarriga/nvim-dap-ui",
+	lazy = true,
 	dependencies = {
 		"mfussenegger/nvim-dap",
 		"nvim-neotest/nvim-nio",
 	},
-	lazy = true,
-	config = function()
-		require("dapui").setup({
-			controls = {
-				element = "repl",
-				enabled = true,
+	opts = {
+		controls = {
+			element = "repl",
+			enabled = true,
+		},
+		floating = {
+			border = "single",
+			mappings = {
+				close = { "q", "<Esc>" },
 			},
-			floating = {
-				border = "single",
-				mappings = {
-					close = { "q", "<Esc>" },
+		},
+		icons = { collapsed = "", expanded = "", current_frame = "" },
+		layouts = {
+			{
+				elements = {
+					{ id = "stacks",      size = 0.25 },
+					{ id = "scopes",      size = 0.25 },
+					{ id = "breakpoints", size = 0.25 },
+					{ id = "watches",     size = 0.25 },
 				},
+				position = "left",
+				size = 45,
 			},
-			icons = { collapsed = "", expanded = "", current_frame = "" },
-			layouts = {
-				{
-					elements = {
-						{ id = "stacks",      size = 0.25 },
-						{ id = "scopes",      size = 0.25 },
-						{ id = "breakpoints", size = 0.25 },
-						{ id = "watches",     size = 0.25 },
-					},
-					position = "left",
-					size = 60,
+			{
+				elements = {
+					{ id = "repl",    size = 0.4 },
+					{ id = "console", size = 0.6 },
 				},
-				{
-					elements = {
-						{ id = "repl", size = 1.0 },
-					},
-					position = "bottom",
-					size = 10,
-				},
+				position = "bottom",
+				size = 10,
 			},
-		})
+		},
+	},
+	config = function(_, opts)
+		require("dapui").setup(opts)
 
 		local dap, dapui = require("dap"), require("dapui")
+
+		vim.keymap.set("n", "<leader>lt", dapui.toggle, { desc = "Debug UI Toggle" })
 
 		dap.listeners.after.event_initialized["dapui_config"] = function()
 			dapui.open()

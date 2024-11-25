@@ -26,6 +26,12 @@ vim.cmd("set wrap")
 -- Other options
 vim.cmd("set nobackup")
 vim.cmd("set cmdheight=0")
-vim.g.mapleader = " "
 
+vim.opt.swapfile = false
+vim.g.mapleader = " "
 vim.g.editorconfig = true
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "FocusGained" }, {
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = { "*" },
+})

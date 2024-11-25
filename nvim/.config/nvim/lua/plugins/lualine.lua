@@ -48,10 +48,13 @@ return {
 			"nvim-dap-ui",
 		},
 		sections = {
-			lualine_a = { { "mode", right_padding = 2 } },
+			lualine_a = {
+				{ "mode", right_padding = 2 }
+			},
 			lualine_b = { "branch" },
 			lualine_c = {
-				"%=", --[[ add your center compoentnts here in place of this comment ]]
+				-- "%=", --[[ add your center compoentnts here in place of this comment ]]
+				"filename"
 			},
 			lualine_x = {
 				{ "diff" },

@@ -1,12 +1,14 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		lazy = true,
 		config = function()
 			require("mason").setup()
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		lazy = true,
 		opts = {
 			ensure_installed = { "lua_ls" },
 		},
@@ -22,6 +24,7 @@ return {
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover info" }),
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" }),
 			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Go to implementation" }),
+			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Go to reference" }),
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" }),
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" }),
 		},

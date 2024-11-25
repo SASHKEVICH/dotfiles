@@ -11,10 +11,12 @@ return {
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
+		lazy = true,
 		opts = {
 			enable_autocmd = false,
 		},
-		config = function()
+		config = function(_, opts)
+			require("ts_context_commentstring").setup(opts)
 			vim.g.skip_ts_context_commentstring_module = true
 			vim.opt.updatetime = 100
 
