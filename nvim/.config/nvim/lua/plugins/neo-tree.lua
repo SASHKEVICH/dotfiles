@@ -10,7 +10,16 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	keys = {
-		vim.keymap.set("n", "<leader>ee", ":Neotree toggle left<CR>", { desc = "Open explorer" }),
+		{
+			"<leader>ee",
+			"<cmd>Neotree toggle left<CR>",
+			desc = "Open explorer"
+		},
+		{
+			"<leader>ef",
+			"<cmd>Neotree toggle reveal left<CR>",
+			desc = "Open current file in explorer"
+		}
 	},
 	opts = {
 		close_if_last_window = true,

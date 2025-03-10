@@ -26,9 +26,8 @@ return {
 		vim.keymap.set("n", "<leader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
 		vim.keymap.set("n", "<leader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
 		vim.keymap.set("n", "<leader>dT", xcodebuild.debug_class_tests, { desc = "Debug Class Tests" })
-		vim.keymap.set("n", "<leader>b", xcodebuild.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+		vim.keymap.set("n", "<leader>sb", xcodebuild.toggle_breakpoint, { desc = "Toggle Breakpoint" })
 		vim.keymap.set("n", "<leader>B", xcodebuild.toggle_message_breakpoint, { desc = "Toggle Message Breakpoint" })
-		vim.keymap.set("n", "<leader>dx", xcodebuild.terminate_session, { desc = "Terminate Debugger" })
 
 		vim.keymap.set("n", "<leader>dc", dap.continue)
 		vim.keymap.set("n", "<leader>ds", dap.step_over)
@@ -37,14 +36,21 @@ return {
 		vim.keymap.set("n", "<C-s-b>", function()
 			dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 		end)
-		vim.keymap.set("n", "<Leader>dx", function()
-			dap.terminate()
-			require("xcodebuild.actions").cancel()
+		vim.keymap.set(
+			"n",
+			"<Leader>dx",
+			function()
+				dap.terminate()
+				require("xcodebuild.actions").cancel()
 
-			local success, dapui = pcall(require, "dapui")
-			if success then
-				dapui.close()
-			end
-		end)
+				local success, dapui = pcall(require, "dapui")
+				if success then
+					dapui.close()
+				end
+			end,
+			{
+				desc = "Terminate Debugger"
+			}
+		)
 	end,
 }

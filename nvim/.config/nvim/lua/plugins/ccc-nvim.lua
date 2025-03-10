@@ -1,5 +1,6 @@
 return {
 	"uga-rosa/ccc.nvim",
+	enabled = true,
 	lazy = true,
 	opts = {
 		highlighter = {

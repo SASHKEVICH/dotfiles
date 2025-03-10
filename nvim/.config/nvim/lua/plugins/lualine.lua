@@ -1,32 +1,3 @@
--- stylua: ignore
-local colors = {
-	blue   = '#80a0ff',
-	cyan   = '#79dac8',
-	black  = '#080808',
-	white  = '#c6c6c6',
-	red    = '#ff5189',
-	violet = '#d183e8',
-	grey   = '#303030',
-}
-
-local bubbles_theme = {
-	normal = {
-		a = { fg = colors.black, bg = colors.violet },
-		b = { fg = colors.white, bg = colors.grey },
-		c = { fg = colors.white },
-	},
-
-	insert = { a = { fg = colors.black, bg = colors.blue } },
-	visual = { a = { fg = colors.black, bg = colors.cyan } },
-	replace = { a = { fg = colors.black, bg = colors.red } },
-
-	inactive = {
-		a = { fg = colors.white, bg = colors.black },
-		b = { fg = colors.white, bg = colors.black },
-		c = { fg = colors.white },
-	},
-}
-
 return {
 	"nvim-lualine/lualine.nvim",
 	lazy = true,
@@ -41,29 +12,50 @@ return {
 		},
 		extensions = {
 			"lazy",
+			"fzf",
 			"mason",
 			"nvim-tree",
 			"neo-tree",
 			"oil",
 			"nvim-dap-ui",
+			"toggleterm",
+			"trouble"
 		},
 		sections = {
 			lualine_a = {
-				{ "mode", right_padding = 2 }
+				{
+					"mode",
+					right_padding = 2
+				}
 			},
-			lualine_b = { "branch" },
+			lualine_b = {
+				{
+					'branch',
+					fmt = function(branch_name)
+						local max_branch_name_length = 30
+						local branch_name_length = #branch_name
+						if branch_name_length <= max_branch_name_length then
+							return branch_name
+						else
+							local cutted_branch_name = string.sub(branch_name, 1, max_branch_name_length + 1)
+							return cutted_branch_name .. '...'
+						end
+					end,
+				}
+			},
 			lualine_c = {
 				-- "%=", --[[ add your center compoentnts here in place of this comment ]]
-				"filename"
+				{
+					"filename",
+					path = 0
+				}
 			},
 			lualine_x = {
-				{ "diff" },
 				{ "'󰙨 ' .. vim.g.xcodebuild_test_plan" },
 				{
 					"vim.g.xcodebuild_platform == 'macOS' and '  macOS' or ' ' .. vim.g.xcodebuild_device_name",
 				},
-				{ "' ' .. vim.g.xcodebuild_os" },
-				{ "encoding" },
+				{ "' ' .. vim.g.xcodebuild_scheme" },
 			},
 			lualine_y = {
 				{ "filetype", icon_only = true },
@@ -80,7 +72,6 @@ return {
 			lualine_y = {},
 			lualine_z = { "location" },
 		},
-		tabline = {},
 	},
 	config = function(_, opts)
 		require("lualine").setup(opts)

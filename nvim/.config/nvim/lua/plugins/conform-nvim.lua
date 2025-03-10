@@ -38,6 +38,7 @@ end
 
 return {
 	"stevearc/conform.nvim",
+	enabled = false,
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
@@ -46,7 +47,7 @@ return {
 			formatters_by_ft = {
 				swift = { "swiftformat_ext" },
 			},
-			format_on_save = function(bufnr)
+			format_on_save = function(_)
 				return { timeout_ms = 500, lsp_fallback = true }
 			end,
 			log_level = vim.log.levels.ERROR,

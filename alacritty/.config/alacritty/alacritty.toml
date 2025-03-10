@@ -1,6 +1,6 @@
 import = [
-	# "~/.config/alacritty/catppuccin-latte.toml",
-	"~/.config/alacritty/catppuccin-macchiato.toml",
+	"~/.config/alacritty/catppuccin-latte.toml",
+	# "~/.config/alacritty/catppuccin-macchiato.toml",
 	# "~/.config/alacritty/catppuccin-frappe.toml",
 	# "~/.config/alacritty/catppuccin-mocha.toml",
 ]
@@ -18,7 +18,7 @@ bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 
 [window]
-title = "Be brave and believe in yourself."
+title = "Alena's first"
 dynamic_title = false
 blur = false
 opacity = 1

@@ -1,39 +1,59 @@
 local cachedConfig = nil
 local searchedForConfig = false
 
+local cachedSwiftlintPath = nil
+local searchedForSwiftlint = false
+
+local function get_tools_path()
+	return vim.fn.glob(vim.fn.getcwd() .. '/.nvim/' .. 'toolsPath.json')
+end
+
 local function find_config()
 	if searchedForConfig then
 		return cachedConfig
 	end
 
-	-- find .swiftlint.yml config file in the working directory
-	-- could be simplified if you keep it always in the root directory
-	local swiftlintConfigs = vim.fn.systemlist({
-		"find",
-		vim.fn.getcwd(),
-		"-maxdepth",
-		"2", -- if you need you can set higher number
-		"-iname",
-		".swiftlint.yml",
-		"-not",
-		"-path",
-		"*/.*/*",
-	})
+	local tools_path = get_tools_path()
+	local tools_file = io.open(tools_path, 'r')
+	if not tools_file then
+		print("Could not open file: " .. tools_path)
+		return ".swiftlint.yml"
+	end
+
+	local tools_content = tools_file:read("*all")
+	local tools_json = vim.json.decode(tools_content)
+
+	tools_file:close()
+
 	searchedForConfig = true
 
-	if vim.v.shell_error ~= 0 then
-		return nil
-	end
-
-	table.sort(swiftlintConfigs, function(a, b)
-		return a ~= "" and #a < #b
-	end)
-
-	if swiftlintConfigs[1] then
-		cachedConfig = string.match(swiftlintConfigs[1], "^%s*(.-)%s*$")
-	end
+	cachedConfig = tools_json.swiftlintConfig
 
 	return cachedConfig
+end
+
+local function find_swiftlint()
+	if searchedForSwiftlint then
+		return cachedSwiftlintPath
+	end
+
+	local tools_path = get_tools_path()
+	-- Check if the file was found
+	local tools_file = io.open(tools_path, 'r')
+	if not tools_file then
+		return "swiftlint"
+	end
+
+	local tools_content = tools_file:read("*all")
+	local tools_json = vim.json.decode(tools_content)
+
+	tools_file:close()
+
+	searchedForSwiftlint = true
+
+	cachedSwiftlintPath = tools_json.swiftlint
+
+	return cachedSwiftlintPath
 end
 
 local function setup_swiftlint()
@@ -47,7 +67,8 @@ local function setup_swiftlint()
 	}
 
 	lint.linters.swiftlint = {
-		cmd = "swiftlint",
+		name = "swiftlint",
+		cmd = find_swiftlint() or "swiftlint",
 		stdin = false,
 		args = {
 			"lint",

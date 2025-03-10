@@ -4,25 +4,39 @@ return {
 	name = "catppuccin",
 	priority = 1000,
 	opts = {
-		flavour = "macchiato",
+		flavour = "latte",
 		background = {
 			light = "latte",
 			dark = "macchiato"
 		},
+		dim_inactive = {
+			enabled = true
+		},
 		integrations = {
-			mason = false,
-			neotree = false,
+			mason = true,
+			neotree = true,
 			nvimtree = true,
 			alpha = true,
 			treesitter = true,
+			treesitter_context = true,
 			dap = true,
 			dap_ui = true,
 			cmp = true,
 			telescope = {
 				enabled = true,
 			},
-			fidget = false,
-			which_key = false,
+			gitsigns = true,
+			indent_blankline = {
+				enabled = true,
+				scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+				colored_indent_levels = false,
+			},
+			mini = {
+				enabled = true
+			},
+			fidget = true,
+			which_key = true,
+			lsp_trouble = true,
 			native_lsp = {
 				enabled = true,
 				virtual_text = {

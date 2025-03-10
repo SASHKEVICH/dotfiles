@@ -11,6 +11,7 @@ export PATH="$PATH:/Users/sashkevich/.mint/bin"
 export PATH="/Users/sashkevich/.local/bin:$PATH"
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH="$PATH:/Users/sashkevich/go/bin"
+export PATH="$PATH:/Users/bekrenev/.local/bin"
 
 # Starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -28,3 +29,5 @@ export EDITOR=nvim
 
 # Java
 export JAVA_HOME="/usr/libexec/java_home"
+
+export BAT_THEME="Catppuccin Latte"

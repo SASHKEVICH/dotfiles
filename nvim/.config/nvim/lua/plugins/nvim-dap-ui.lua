@@ -1,6 +1,6 @@
 return {
 	"rcarriga/nvim-dap-ui",
-	lazy = true,
+	event = "VeryLazy",
 	dependencies = {
 		"mfussenegger/nvim-dap",
 		"nvim-neotest/nvim-nio",
@@ -43,7 +43,7 @@ return {
 
 		local dap, dapui = require("dap"), require("dapui")
 
-		vim.keymap.set("n", "<leader>lt", dapui.toggle, { desc = "Debug UI Toggle" })
+		vim.keymap.set("n", "<leader>lt", dapui.toggle, { desc = "Toggle Debugger UI" })
 
 		dap.listeners.after.event_initialized["dapui_config"] = function()
 			dapui.open()
